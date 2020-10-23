@@ -26,18 +26,30 @@ namespace PotterBookshopNetFramework
             basket.AddBook(new Book(1, "Book 1"));
 
             var basketTotal = basket.Subtotal();
-            Assert.AreEqual(5, basketTotal);
+            Assert.AreEqual(8, basketTotal);
         }
 
         [Test]
-        public void WhenTwoBooks_Then9Euros50Cents()
+        public void WhenTwoBooks_Then15_20()
         {
             var basket = new Basket();
             basket.AddBook(new Book(1, "Book 1"));
             basket.AddBook(new Book(2, "Book 2"));
 
             var basketTotal = basket.Subtotal();
-            Assert.AreEqual(9.50, basketTotal);
+            Assert.AreEqual(15.20m, basketTotal);
+        }
+
+        [Test]
+        public void WhenThreeBooks_Then_21_60()
+        {
+            var basket = new Basket();
+            basket.AddBook(new Book(1, "Book 1"));
+            basket.AddBook(new Book(2, "Book 2"));
+            basket.AddBook(new Book(3, "Book 3"));
+
+            var basketTotal = basket.Subtotal();
+            Assert.AreEqual(21.60m, basketTotal);
         }
     }
 
@@ -57,7 +69,7 @@ namespace PotterBookshopNetFramework
 
         public decimal Subtotal()
         {
-            var priceOfBook = 5m;
+            var priceOfBook = 8m;
 
             var uniqueBooksCount = BooksInBasket.Select(x => x.BookId).Distinct().Count();
 
@@ -65,6 +77,9 @@ namespace PotterBookshopNetFramework
 
             if (uniqueBooksCount == 2)
                 return subtotal * 0.95m;
+
+            if (uniqueBooksCount == 3)
+                return subtotal * 0.9m;
 
             return subtotal;
         }
