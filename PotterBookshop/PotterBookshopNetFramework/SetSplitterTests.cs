@@ -16,7 +16,12 @@ namespace PotterBookshopNetFramework
                 new Book(3, "Book 3")
             };
 
-            var splitter = new SetSplitter();
+            var splitterOptions = new SetSplitterOptions
+            {
+                MaximumSetSize = 100
+            };
+
+            var splitter = new SetSplitter(splitterOptions);
             var result = splitter.Split(books);
 
             Assert.AreEqual(1, result.Count);
@@ -35,7 +40,13 @@ namespace PotterBookshopNetFramework
                 new Book(3, "Book 3")
             };
 
-            var splitter = new SetSplitter();
+            var splitterOptions = new SetSplitterOptions
+            {
+                MaximumSetSize = 100
+            };
+
+            var splitter = new SetSplitter(splitterOptions);
+
             var result = splitter.Split(books);
 
             Assert.AreEqual(2, result.Count);
@@ -52,7 +63,13 @@ namespace PotterBookshopNetFramework
                 new Book(1, "Book 1")
             };
 
-            var splitter = new SetSplitter();
+            var splitterOptions = new SetSplitterOptions
+            {
+                MaximumSetSize = 100
+            };
+
+            var splitter = new SetSplitter(splitterOptions);
+
             var result = splitter.Split(books);
 
             Assert.AreEqual(2, result.Count);
@@ -73,10 +90,42 @@ namespace PotterBookshopNetFramework
                 new Book(5, "Book 5")
             };
 
-            var splitter = new SetSplitter();
+            var splitterOptions = new SetSplitterOptions
+            {
+                MaximumSetSize = 100
+            };
+
+            var splitter = new SetSplitter(splitterOptions);
+
             var result = splitter.Split(books);
 
             Assert.AreEqual(2, result.Count);
         }
+
+        [Test]
+        public void WithBoundedSetSizeOf1_ThenThreeDifferentBooks_IsThreeDifferentSets()
+        {
+            var books = new List<Book>()
+            {
+                new Book(1, "Book 1"),
+                new Book(2, "Book 2"),
+                new Book(3, "Book 3")
+            };
+
+            var splitterOptions = new SetSplitterOptions
+            {
+                MaximumSetSize = 1
+            };
+
+            var splitter = new SetSplitter(splitterOptions);
+            var result = splitter.Split(books);
+
+            Assert.AreEqual(3, result.Count);
+        }
+    }
+
+    public class SetSplitterOptions
+    {
+        public int MaximumSetSize { get; set; }
     }
 }

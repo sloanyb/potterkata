@@ -14,8 +14,13 @@ namespace PotterBookshopNetFramework
         {
             var discountAmount = 0m;
 
-            var setSplitter = new SetSplitter();
-            var setsOfBooks = setSplitter.Split(books);
+            var splitterOptions = new SetSplitterOptions
+            {
+                MaximumSetSize = 100
+            };
+
+            var splitter = new SetSplitter(splitterOptions);
+            var setsOfBooks = splitter.Split(books);
 
             foreach (var setOfBooks in setsOfBooks)
             {

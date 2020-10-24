@@ -5,13 +5,23 @@ namespace PotterBookshopNetFramework
 {
     public class SetSplitter
     {
+        private SetSplitterOptions options;
+
+        public SetSplitter(SetSplitterOptions splitterOptions)
+        {
+            options = splitterOptions;
+        }
+
         public List<SetOfBooks> Split(List<Book> books)
         {
             var sets = new List<SetOfBooks>();
 
             foreach (var book in books)
             {
-                var firstSetWithoutThisBookInIt = sets.FirstOrDefault(x => !x.Books.Any(b => b.BookId == book.BookId));
+                var firstSetWithoutThisBookInIt = 
+                    sets
+                        .Where(x => x.Books.Count < options.MaximumSetSize)
+                        .FirstOrDefault(x => !x.Books.Any(b => b.BookId == book.BookId));
 
                 if (firstSetWithoutThisBookInIt == null)
                 {
