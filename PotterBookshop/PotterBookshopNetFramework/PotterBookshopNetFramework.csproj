@@ -47,8 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Book.cs" />
+    <Compile Include="Basket.cs" />
+    <Compile Include="IDiscountCalculator.cs" />
+    <Compile Include="PotterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetOfBooks.cs" />
+    <Compile Include="SetSplitter.cs" />
+    <Compile Include="SetSplitterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
