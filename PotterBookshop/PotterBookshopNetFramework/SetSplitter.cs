@@ -21,7 +21,7 @@ namespace PotterBookshopNetFramework
                 var firstSetWithoutThisBookInIt = 
                     sets
                         .Where(x => x.Books.Count < options.MaximumSetSize)
-                        .FirstOrDefault(x => !x.Books.Any(b => b.BookId == book.BookId));
+                        .FirstOrDefault(x => !x.Books.Any(b => b.Isbn == book.Isbn));
 
                 if (firstSetWithoutThisBookInIt == null)
                 {
