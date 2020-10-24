@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PotterBookshopNetFramework
 {
@@ -42,7 +43,7 @@ namespace PotterBookshopNetFramework
             foreach (var setOfBooks in setsOfBooks)
             {
                 var quantityOfBooks = setOfBooks.Books.Count;
-                var basePriceOfSet = quantityOfBooks * 8m;
+                var basePriceOfSet = setOfBooks.Books.Sum(x => x.Price);
 
                 switch (quantityOfBooks)
                 {

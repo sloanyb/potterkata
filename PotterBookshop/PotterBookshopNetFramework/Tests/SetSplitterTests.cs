@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using NUnit.Framework;
 
 namespace PotterBookshopNetFramework.Tests
@@ -6,14 +7,16 @@ namespace PotterBookshopNetFramework.Tests
     [TestFixture]
     public class SetSplitterTests
     {
+        private decimal priceOfOneBook = 8m;
+
         [Test]
         public void WhenThreeDifferentBooks_ThenOneSet()
         {
             var books = new List<Book>()
             {
-                new Book(1, "Book 1"),
-                new Book(2, "Book 2"),
-                new Book(3, "Book 3")
+                new Book(1, "Book 1", priceOfOneBook),
+                new Book(2, "Book 2", priceOfOneBook),
+                new Book(3, "Book 3", priceOfOneBook)
             };
 
             var splitterOptions = new SetSplitterOptions
@@ -32,12 +35,12 @@ namespace PotterBookshopNetFramework.Tests
         {
             var books = new List<Book>()
             {
-                new Book(1, "Book 1"),
-                new Book(2, "Book 2"),
-                new Book(3, "Book 3"),
-                new Book(1, "Book 1"),
-                new Book(2, "Book 2"),
-                new Book(3, "Book 3")
+                new Book(1, "Book 1", priceOfOneBook),
+                new Book(2, "Book 2", priceOfOneBook),
+                new Book(3, "Book 3", priceOfOneBook),
+                new Book(1, "Book 1", priceOfOneBook),
+                new Book(2, "Book 2", priceOfOneBook),
+                new Book(3, "Book 3", priceOfOneBook)
             };
 
             var splitterOptions = new SetSplitterOptions
@@ -57,10 +60,10 @@ namespace PotterBookshopNetFramework.Tests
         {
             var books = new List<Book>()
             {
-                new Book(1, "Book 1"),
-                new Book(2, "Book 2"),
-                new Book(3, "Book 3"),
-                new Book(1, "Book 1")
+                new Book(1, "Book 1", priceOfOneBook),
+                new Book(2, "Book 2", priceOfOneBook),
+                new Book(3, "Book 3", priceOfOneBook),
+                new Book(1, "Book 1", priceOfOneBook)
             };
 
             var splitterOptions = new SetSplitterOptions
@@ -80,14 +83,14 @@ namespace PotterBookshopNetFramework.Tests
         {
             var books = new List<Book>()
             {
-                new Book(1, "Book 1"),
-                new Book(1, "Book 1"),
-                new Book(2, "Book 2"),
-                new Book(2, "Book 2"),
-                new Book(3, "Book 3"),
-                new Book(3, "Book 3"),
-                new Book(4, "Book 4"),
-                new Book(5, "Book 5")
+                new Book(1, "Book 1", priceOfOneBook),
+                new Book(1, "Book 1", priceOfOneBook),
+                new Book(2, "Book 2", priceOfOneBook),
+                new Book(2, "Book 2", priceOfOneBook),
+                new Book(3, "Book 3", priceOfOneBook),
+                new Book(3, "Book 3", priceOfOneBook),
+                new Book(4, "Book 4", priceOfOneBook),
+                new Book(5, "Book 5", priceOfOneBook)
             };
 
             var splitterOptions = new SetSplitterOptions
@@ -111,11 +114,11 @@ namespace PotterBookshopNetFramework.Tests
         {
             var books = new List<Book>()
             {
-                new Book(1, "Book 1"),
-                new Book(2, "Book 2"),
-                new Book(3, "Book 3"),
-                new Book(4, "Book 4"),
-                new Book(5, "Book 5")
+                new Book(1, "Book 1", priceOfOneBook),
+                new Book(2, "Book 2", priceOfOneBook),
+                new Book(3, "Book 3", priceOfOneBook),
+                new Book(4, "Book 4", priceOfOneBook),
+                new Book(5, "Book 5", priceOfOneBook)
             };
 
             var splitterOptions = new SetSplitterOptions

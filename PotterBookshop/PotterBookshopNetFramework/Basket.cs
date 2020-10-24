@@ -20,10 +20,7 @@ namespace PotterBookshopNetFramework
 
         public decimal BasketTotal()
         {
-            var priceOfBook = 8m;
-
-            var totalBooksCount = BooksInBasket.Count();
-            var subtotal = priceOfBook * totalBooksCount;
+            var subtotal = BooksInBasket.Sum(x => x.Price);
 
             var discountAmount = _discountCalculator.CalculateDiscountAmount(BooksInBasket);
 

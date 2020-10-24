@@ -5,10 +5,13 @@
         public int Isbn { get; set; }
         public string Title { get; set; }
 
-        public Book(int isbn, string title)
+        public decimal Price { get; set; }
+
+        public Book(int isbn, string title, decimal price)
         {
             Isbn = isbn;
             Title = title;
+            Price = price;
         }
     }
 }
