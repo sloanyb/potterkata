@@ -82,6 +82,7 @@ namespace PotterBookshopNetFramework
         public void WhenExampleBasketProvided_ThenCorrectAmountIsObtained()
         {
             var basket = new Basket(new SetBasedDiscountCalculator());
+
             basket.AddBook(new Book(1, "Book 1"));
             basket.AddBook(new Book(1, "Book 1"));
             basket.AddBook(new Book(2, "Book 2"));
