@@ -20,7 +20,7 @@ namespace PotterBookshopNetFramework
             BooksInBasket.Add(book);
         }
 
-        public decimal Subtotal()
+        public decimal BasketTotal()
         {
             var priceOfBook = 8m;
 

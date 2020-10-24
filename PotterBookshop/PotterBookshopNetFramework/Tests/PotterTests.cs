@@ -11,7 +11,7 @@ namespace PotterBookshopNetFramework.Tests
             var basket = new Basket(new SetBasedDiscountCalculator());
             basket.AddBook(new Book(1, "Book 1"));
 
-            var basketTotal = basket.Subtotal();
+            var basketTotal = basket.BasketTotal();
             Assert.AreEqual(8, basketTotal);
         }
 
@@ -22,7 +22,7 @@ namespace PotterBookshopNetFramework.Tests
             basket.AddBook(new Book(1, "Book 1"));
             basket.AddBook(new Book(2, "Book 2"));
 
-            var basketTotal = basket.Subtotal();
+            var basketTotal = basket.BasketTotal();
             Assert.AreEqual(15.20m, basketTotal);
         }
 
@@ -34,7 +34,7 @@ namespace PotterBookshopNetFramework.Tests
             basket.AddBook(new Book(2, "Book 2"));
             basket.AddBook(new Book(3, "Book 3"));
 
-            var basketTotal = basket.Subtotal();
+            var basketTotal = basket.BasketTotal();
             Assert.AreEqual(21.60m, basketTotal);
         }
 
@@ -47,7 +47,7 @@ namespace PotterBookshopNetFramework.Tests
             basket.AddBook(new Book(3, "Book 3"));
             basket.AddBook(new Book(4, "Book 4"));
 
-            var basketTotal = basket.Subtotal();
+            var basketTotal = basket.BasketTotal();
             Assert.AreEqual(25.60m, basketTotal);
         }
 
@@ -61,7 +61,7 @@ namespace PotterBookshopNetFramework.Tests
             basket.AddBook(new Book(4, "Book 4"));
             basket.AddBook(new Book(5, "Book 5"));
 
-            var basketTotal = basket.Subtotal();
+            var basketTotal = basket.BasketTotal();
             Assert.AreEqual(30m, basketTotal);
         }
 
@@ -74,7 +74,7 @@ namespace PotterBookshopNetFramework.Tests
             basket.AddBook(new Book(2, "Book 2"));
             basket.AddBook(new Book(3, "Book 3"));
 
-            var basketTotal = basket.Subtotal();
+            var basketTotal = basket.BasketTotal();
             Assert.AreEqual(29.60m, basketTotal);
         }
 
@@ -92,7 +92,7 @@ namespace PotterBookshopNetFramework.Tests
             basket.AddBook(new Book(4, "Book 4"));
             basket.AddBook(new Book(5, "Book 5"));
 
-            var basketTotal = basket.Subtotal();
+            var basketTotal = basket.BasketTotal();
             Assert.AreEqual(51.20m, basketTotal);
         }
     }
