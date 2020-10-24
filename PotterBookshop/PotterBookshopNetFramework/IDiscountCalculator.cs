@@ -12,11 +12,28 @@ namespace PotterBookshopNetFramework
     {
         public decimal CalculateDiscountAmount(List<Book> books)
         {
+            decimal bestPossibleDiscount = 0m;
+
+            for (int i = 1; i <= books.Count; i++)
+            {
+                int evaluationSetSize = i;
+
+                var discountforSetSize = DiscountForSetSize(books, evaluationSetSize);
+
+                if (discountforSetSize > bestPossibleDiscount)
+                    bestPossibleDiscount = discountforSetSize;
+            }
+
+            return bestPossibleDiscount;
+        }
+
+        private decimal DiscountForSetSize(List<Book> books, int evaluationSetSize)
+        {
             var discountAmount = 0m;
 
             var splitterOptions = new SetSplitterOptions
             {
-                MaximumSetSize = 100
+                MaximumSetSize = evaluationSetSize
             };
 
             var splitter = new SetSplitter(splitterOptions);
