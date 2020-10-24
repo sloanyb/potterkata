@@ -15,10 +15,8 @@ namespace PotterBookshopNetFramework
             BooksInBasket = new List<Book>();
         }
 
-        public void AddBook(Book book)
-        {
+        public void AddBook(Book book) =>
             BooksInBasket.Add(book);
-        }
 
         public decimal BasketTotal()
         {

@@ -20,12 +20,12 @@ namespace PotterBookshopNetFramework
             {
                 var firstSetWithoutThisBookInIt = 
                     sets
-                        .Where(x => x.Books.Count < options.MaximumSetSize)
+                        .Where(x => !x.IsSetFull())
                         .FirstOrDefault(x => !x.Books.Any(b => b.Isbn == book.Isbn));
 
                 if (firstSetWithoutThisBookInIt == null)
                 {
-                    sets.Add(new SetOfBooks()
+                    sets.Add(new SetOfBooks(options.MaximumSetSize)
                     {
                         Books = new List<Book>() {book}
                     });
