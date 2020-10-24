@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace PotterBookshopNetFramework
+namespace PotterBookshopNetFramework.Tests
 {
     [TestFixture]
     public class SetSplitterTests
@@ -128,10 +128,5 @@ namespace PotterBookshopNetFramework
 
             Assert.AreEqual(expectedSplitCount, result.Count);
         }
-    }
-
-    public class SetSplitterOptions
-    {
-        public int MaximumSetSize { get; set; }
     }
 }

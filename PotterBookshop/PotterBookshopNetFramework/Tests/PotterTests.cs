@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace PotterBookshopNetFramework
+namespace PotterBookshopNetFramework.Tests
 {
     [TestFixture]
     public class PotterTests
